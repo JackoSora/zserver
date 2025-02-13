@@ -3,19 +3,22 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { UsersModule } from './users/users.module';
 import { CharactersModule } from './characters/characters.module';
 import { RelicsModule } from './relics/relics.module';
+import { Character } from './characters/character.entity';
+import { Relic } from './relics/relic.entity';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'your_username',
-      password: 'your_password',
-      database: 'zzz_optimizer',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true, // Set to false in production
+      host: 'localhost', // Replace with your database host
+      port: 5432, // Replace with your database port
+      username: 'zadmin', // Replace with your database username
+      password: '12thHarbinger', // Replace with your database password
+      database: 'zzz_optimizer', // Replace with your database name
+      entities: [Character, Relic], // Add your entities here
+      synchronize: false, // Set to false in production
     }),
+    TypeOrmModule.forFeature([Character, Relic]), // Register the Character entity
     UsersModule,
     CharactersModule,
     RelicsModule,
