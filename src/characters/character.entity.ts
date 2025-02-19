@@ -5,7 +5,8 @@ export class Character {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @Column({ nullable: false }) // Ensure the column is NOT NULL
+    // Allowing null for name to avoid migration issues with existing null values
+    @Column({ nullable: true })
     name: string;
 
     @Column({ default: 60 })

@@ -1,11 +1,11 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
+@Entity('relics')
 export class Relic {
   @PrimaryGeneratedColumn('uuid')
   RelicUniqueID: string;
 
-  @Column()
+  @Column({ name: 'set_name' })
   Set: string;
 
   @Column()

@@ -5,6 +5,7 @@ import { CharactersModule } from './characters/characters.module';
 import { RelicsModule } from './relics/relics.module';
 import { Character } from './characters/character.entity';
 import { Relic } from './relics/relic.entity';
+import { User } from './users/entities/user.entity';
 
 @Module({
   imports: [
@@ -15,8 +16,8 @@ import { Relic } from './relics/relic.entity';
       username: 'zadmin', // Replace with your database username
       password: '12thHarbinger', // Replace with your database password
       database: 'zzz_optimizer', // Replace with your database name
-      entities: [Character, Relic], // Add your entities here
-      synchronize: false, // Set to false in production
+      entities: [Character, Relic, User], // Add your entities here
+      synchronize: true, // Set to false in production
     }),
     TypeOrmModule.forFeature([Character, Relic]), // Register the Character entity
     UsersModule,

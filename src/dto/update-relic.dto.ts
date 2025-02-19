@@ -1,4 +1,9 @@
 import { PartialType } from '@nestjs/mapped-types';
 import { CreateRelicDto } from './create-relic.dto';
 
-export class UpdateRelicDto extends PartialType(CreateRelicDto) {}
+export class UpdateRelicDto {
+  readonly setname?: string;
+  readonly mainstat?: string;
+  readonly substats?: string[];
+  readonly slot?: number;
+}
